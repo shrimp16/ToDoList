@@ -1,3 +1,36 @@
 * {
-    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    border: 3px black solid;
+    border-radius: 10px;
+    color: white;
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    background-color: rgb(132, 0, 255);
+}
+
+.title {
+    text-align: center;
+    margin: auto;
+    height: 20%;
+}
+
+.desc {
+    margin: auto;
+    height: 50%;
+    width: 90%;
+    border: 3px black solid;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.desc > p {
+    margin: 10px;
 }
