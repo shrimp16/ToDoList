@@ -40,7 +40,7 @@ app.get('/items', (req, res) => {
     allItems.push(highPrioItems);
     allItems.push(mediumPrioItems);
     allItems.push(lowPrioItems);
-    console.log(allItems[0]);
+    res.send(allItems);
 })
 
 app.post('/newItem/:prio', (req, res) => {
@@ -48,7 +48,6 @@ app.post('/newItem/:prio', (req, res) => {
         item: req.body.item,
         desc: req.body.desc
     };
-    console.log(newItem);
     let answer = addTo(req.params.prio, newItem);
     res.send(answer);
 })
