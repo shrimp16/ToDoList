@@ -33,16 +33,28 @@ function showItems(response) {
     document.getElementById("body").innerHTML = '';
     for(let i = 0; i < response.length; i++){
         for(let b = 0; b < response[i].length; b++){
-            console.log(response[i][b]);
-            document.getElementById("body").innerHTML += `<div class="card">
-            <div class="title">
-                <h1>${response[i][b].item}</h1>
-                <h3>Priority: ${priority[i]}</h3>
+            document.getElementById("body").innerHTML += (`<div class="card"> <div class="title">
+            <h1>${response[i][b].item}</h1>
+            <h3>Priority: ${priority[i]}</h3>
+            <button class="done" id="remove${i}and${b}">Done</button>
             </div>
             <div class="desc">
-                <p>${response[i][b].desc}</p>
+            <p>${response[i][b].desc}</p>
             </div>
-        </div>`
+            </div>`)
+        }
+    }
+    setupRemove(response);
+}
+
+function setupRemove(response) {
+    for(let i = 0; i < response.length; i++){
+        for(let b = 0; b < response[i].length; b++){
+            $(`#remove${i}and${b}`).click(() => {
+                console.log(i);
+                console.log(b);
+            })
         }
     }
 }
+
