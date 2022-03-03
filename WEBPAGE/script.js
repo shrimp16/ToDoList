@@ -2,7 +2,7 @@ import { item } from "./src/items.js";
 import { getItems } from './src/items.js';
 
 document.body.onload = () => {
-    getItems();
+    //getItems();
 }
 
 $('#button').click(() => {
