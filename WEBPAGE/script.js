@@ -1,8 +1,10 @@
 import { item } from "./src/items.js";
 import { getItems } from './src/items.js';
 
+let prio;
+
 document.body.onload = () => {
-    //getItems();
+    getItems();
 }
 
 $('#button').click(() => {
@@ -10,3 +12,25 @@ $('#button').click(() => {
     console.log(test.desc);
     console.log(test.item);
 })
+
+$('#low').click(() => {
+    prio = 'low';
+    createItem();
+})
+
+$('#medium').click(() => {
+    prio = 'medium';
+    createItem();
+})
+
+$('#high').click(() => {
+    prio = 'high';
+    createItem();
+})
+
+function createItem() {
+    let desc = document.getElementById('desc').value;
+    let title = document.getElementById('title').value;
+    let newItem = new item(title, desc);
+    newItem.addItem(newItem, prio);
+}
