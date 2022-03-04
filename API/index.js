@@ -16,13 +16,13 @@ app.use(function (req, res, next) {
 function addTo(priority, newItem) {
     let file;
     switch (priority) {
-        case 'high':
+        case 'High':
             file = './items/highPrio.json';
             break;
-        case 'medium':
+        case 'Medium':
             file = './items/mediumPrio.json';
             break;
-        case 'low':
+        case 'Low':
             file = './items/lowPrio.json';
             break;
     }
@@ -37,6 +37,28 @@ function addTo(priority, newItem) {
     return "Success!";
 
 }
+
+app.delete('/done/:prio/:id', (req, res) => {
+    let file;
+    switch(req.params.prio){
+        case 'High':
+            file = './items/highPrio.json';
+            break;
+        case 'Medium':
+            file = './items/mediumPrio.json';
+            break;
+        case 'Low':
+            file = './items/lowPrio.json';
+            break;
+    }
+    let currentFile = JSON.parse(fs.readFileSync(file));
+    currentFile.splice(req.params.id, req.params.id++);
+    fs.writeFile(file, JSON.stringify(currentFile), err => {
+        if (err) throw err;
+        console.log("nuked");
+    });
+    
+})
 
 app.get('/items', (req, res) => {
     let lowPrioItems = JSON.parse(fs.readFileSync('./items/lowPrio.json'));

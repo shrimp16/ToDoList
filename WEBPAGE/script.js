@@ -14,17 +14,17 @@ $('#button').click(() => {
 })
 
 $('#low').click(() => {
-    prio = 'low';
+    prio = 'Low';
     createItem();
 })
 
 $('#medium').click(() => {
-    prio = 'medium';
+    prio = 'Medium';
     createItem();
 })
 
 $('#high').click(() => {
-    prio = 'high';
+    prio = 'High';
     createItem();
 })
 
