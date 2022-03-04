@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
     next();
 })
 
-function addTo(priority, newItem) {
+function getFile(priority){
     let file;
     switch (priority) {
         case 'High':
@@ -26,6 +26,11 @@ function addTo(priority, newItem) {
             file = './items/lowPrio.json';
             break;
     }
+    return file;
+}
+
+function addTo(priority, newItem) {
+    let file = getFile(priority);
     let currentFile = fs.readFileSync(file);
     currentFile = JSON.parse(currentFile);
     currentFile.push(newItem);
@@ -39,36 +44,25 @@ function addTo(priority, newItem) {
 }
 
 app.delete('/done/:prio/:id', (req, res) => {
-    let file;
-    switch(req.params.prio){
-        case 'High':
-            file = './items/highPrio.json';
-            break;
-        case 'Medium':
-            file = './items/mediumPrio.json';
-            break;
-        case 'Low':
-            file = './items/lowPrio.json';
-            break;
-    }
-    let currentFile = JSON.parse(fs.readFileSync(file));
-    console.log(currentFile);
+    
     let id = parseInt(req.params.id);
+
+    let file = getFile(req.params.prio);
+
+    let currentFile = JSON.parse(fs.readFileSync(file));
+
     if(id === 0){
         currentFile.shift();
-        console.log(currentFile);
     }else{
         currentFile.splice(id, id++);
-        console.log(currentFile);
     }
-    console.log(currentFile);
-    fs.writeFile(file, JSON.stringify(currentFile), err => {
+    
+    fs.writeFile(file, JSON.stringify(currentFile), (err) => {
         if (err) throw err;
-        console.log("nuked");
+        console.log("Removed to do item");
+        res.send("Removed to do item!");
     });
 
-    res.send("Success!")
-    
 })
 
 app.get('/items', (req, res) => {
