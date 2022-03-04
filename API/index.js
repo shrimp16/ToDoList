@@ -57,6 +57,8 @@ app.delete('/done/:prio/:id', (req, res) => {
         if (err) throw err;
         console.log("nuked");
     });
+
+    res.send("Success!")
     
 })
 
