@@ -51,8 +51,11 @@ function setupRemove(response) {
     for(let i = 0; i < response.length; i++){
         for(let b = 0; b < response[i].length; b++){
             $(`#${i}-${b}`).click(() => {
-                console.log(i);
-                console.log(b);
+                fetch(`http://192.168.1.103:3000/done/${priority[i]}/${b}`, {
+                    method: 'DELETE'
+                }).then((response) => {
+                    getItems();
+                })
             })
         }
     }

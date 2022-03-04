@@ -52,7 +52,16 @@ app.delete('/done/:prio/:id', (req, res) => {
             break;
     }
     let currentFile = JSON.parse(fs.readFileSync(file));
-    currentFile.splice(req.params.id, req.params.id++);
+    console.log(currentFile);
+    let id = parseInt(req.params.id);
+    if(id === 0){
+        currentFile.shift();
+        console.log(currentFile);
+    }else{
+        currentFile.splice(id, id++);
+        console.log(currentFile);
+    }
+    console.log(currentFile);
     fs.writeFile(file, JSON.stringify(currentFile), err => {
         if (err) throw err;
         console.log("nuked");
