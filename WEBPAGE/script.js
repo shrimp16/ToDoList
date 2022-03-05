@@ -34,8 +34,8 @@ $('#submit').click(() => {
 })
 
 function createItem() {
-    let desc = "xd" //document.getElementById('desc').value;
-    let title = "xddx" // document.getElementById('title').value;
+    let desc = document.getElementById('desc-input').value;
+    let title = document.getElementById('title-input').value;
     let newItem = new itemManager.item(title, desc);
     itemManager.addItem(newItem, prio);
 }
