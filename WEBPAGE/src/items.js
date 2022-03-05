@@ -1,4 +1,8 @@
+import * as colors from './colors.js'
+
 const priority = ["High", "Medium", "Low"];
+
+let body = document.getElementById("body");
 
 export class item {
     constructor(item, desc){
@@ -29,11 +33,12 @@ export function getItems() {
 }
 
 function showItems(response) {
-    console.log(response);
-    document.getElementById("body").innerHTML = '';
-    for(let i = 0; i < response.length; i++){
-        for(let b = 0; b < response[i].length; b++){
-            document.getElementById("body").innerHTML += (`<div class="card"> <div class="title">
+    let card = 0;
+    body.innerHTML = '';
+    for(let i = 0; i < response.length; i++) {
+        for(let b = 0; b < response[i].length; i++){
+            body.innerHTML += `<div class="card" id="card${card}">
+            <div class="title">
             <h1>${response[i][b].item}</h1>
             <h3>Priority: ${priority[i]}</h3>
             <button class="done" id="${i}-${b}">Done</button>
@@ -41,7 +46,10 @@ function showItems(response) {
             <div class="desc">
             <p>${response[i][b].desc}</p>
             </div>
-            </div>`)
+            </div>`;
+            console.log(document.getElementById(`card${card}`));
+            document.getElementById(`card${card}`).style.backgroundColor = colors.PRIO_COLORS[i];
+            card++;
         }
     }
     setupRemove(response);

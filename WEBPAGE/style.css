@@ -17,6 +17,7 @@ body{
     flex-direction: column;
     margin: auto;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .card > * {

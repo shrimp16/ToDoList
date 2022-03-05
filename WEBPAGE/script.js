@@ -1,10 +1,12 @@
-import { item } from "./src/items.js";
-import { getItems } from './src/items.js';
-import { addItem } from './src/items.js';
+import * as itemManager from './src/items.js';
+import * as colors from './src/colors.js';
+
+let border = document.getElementById('card');
+
 let prio;
 
 document.body.onload = () => {
-    getItems();
+    itemManager.getItems();
 }
 
 $('#button').click(() => {
@@ -13,22 +15,27 @@ $('#button').click(() => {
 
 $('#low').click(() => {
     prio = 'Low';
-    createItem();
+    border.style.border = colors.GREEN_BORDER;
 })
 
 $('#medium').click(() => {
     prio = 'Medium';
-    createItem();
+    border.style.border = colors.YELLOW_BORDER;
 })
 
 $('#high').click(() => {
     prio = 'High';
+    border.style.border = colors.RED_BORDER;
+})
+
+$('#submit').click(() => {
+    border.style.border = colors.DEFAULT_BORDER;
     createItem();
 })
 
 function createItem() {
-    let desc = document.getElementById('desc').value;
-    let title = document.getElementById('title').value;
-    let newItem = new item(title, desc);
-    addItem(newItem, prio);
+    let desc = "xd" //document.getElementById('desc').value;
+    let title = "xddx" // document.getElementById('title').value;
+    let newItem = new itemManager.item(title, desc);
+    itemManager.addItem(newItem, prio);
 }
