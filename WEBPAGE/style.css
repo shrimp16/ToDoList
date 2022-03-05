@@ -23,9 +23,23 @@ body{
     margin-top: 10px;
 }
 
+.title > input{
+    height: 30px;
+    border: 3px black solid;
+    border-radius: 10px;
+}
+
 .desc {
     font-size: 1.25rem;
     text-align: center;
+    height: 5rem;
+    width: 90%;
+}
+
+.text-input {
+    width: 100%;
+    border: 3px black solid;
+    border-radius: 10px;
 }
 
 .actions {
