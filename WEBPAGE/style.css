@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+.card {
+    background-color: white;
+    height: fit-content;
+    width: 50%;
+    border: 3px black solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+.card > * {
+    margin-top: 10px;
+}
+
+.desc {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.actions {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions >  button{
+    margin-top: 5px;
+}
+
+.final-button {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.final-button > button {
+    padding: 5px 5px;
+}
+
+button {
+    font-size: 1rem;
+}
+
+button {
+    transition: 0.4s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.high {
+    background-color: hsl(10, 100%, 60%);
+}
+
+.high:hover {
+    background-color: hsl(0, 100%, 80%);
+}
+
+.medium {
+    background-color: hsl(50, 100%, 60%);
+}
+
+.medium:hover {
+    background-color: hsl(50, 100%, 80%);
+}
+
+.low {
+    background-color: hsl(100, 100%, 60%);
+}
+
+.low:hover {
+    background-color: hsl(100, 100%, 80%);
+}
+
+.submit {
+    background-color: hsl(200, 100%, 60%);
+}
+
+.submit:hover {
+    background-color: hsl(200, 100%, 80%);
+}
+
+
+
