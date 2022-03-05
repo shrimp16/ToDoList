@@ -36,15 +36,17 @@ function showItems(response) {
     let card = 0;
     body.innerHTML = '';
     for(let i = 0; i < response.length; i++) {
-        for(let b = 0; b < response[i].length; i++){
+        for(let b = 0; b < response[i].length; b++){
             body.innerHTML += `<div class="card" id="card${card}">
             <div class="title">
             <h1>${response[i][b].item}</h1>
-            <h3>Priority: ${priority[i]}</h3>
-            <button class="done" id="${i}-${b}">Done</button>
+            <p><b>Priority: ${priority[i]}</b></p>
             </div>
             <div class="desc">
             <p>${response[i][b].desc}</p>
+            </div>
+            <div class="final-button">
+            <button class="submit" id="${i}-${b}">Done</button>
             </div>
             </div>`;
             console.log(document.getElementById(`card${card}`));
