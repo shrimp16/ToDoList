@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "item": "High",
+    "desc": "This is an example of how an high priority to do item will look like"
+  }
+]

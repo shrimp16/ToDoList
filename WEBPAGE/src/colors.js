@@ -1,11 +1,7 @@
-export const RED = 'hsl(10, 100%, 60%)';
-export const YELLOW = 'hsl(50, 100%, 60%)';
-export const GREEN = 'hsl(100, 100%, 60%)';
-
 export const PRIO_COLORS = [
-    'hsl(10, 100%, 60%)',
-    'hsl(50, 100%, 60%)',
-    'hsl(100, 100%, 60%)'
+    'hsl(10, 100%, 60%)', // RED
+    'hsl(50, 100%, 60%)', // YELLOW
+    'hsl(100, 100%, 60%)' // GREEN
 ];
 
 export const RED_BORDER = '3px hsl(10, 100%, 60%) solid';

@@ -9,10 +9,6 @@ document.body.onload = () => {
     itemManager.getItems();
 }
 
-$('#button').click(() => {
-    let test = new item("test", "descriptioin");
-})
-
 $('#low').click(() => {
     prio = 'Low';
     border.style.border = colors.GREEN_BORDER;
